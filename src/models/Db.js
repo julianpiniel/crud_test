@@ -2,7 +2,6 @@ const mongoose = require("mongoose");
 require("dotenv").config();
 const { DB_SERVER, DB_HOST, DB_NAME } = process.env;
 const url = `${DB_SERVER}://${DB_HOST}:/${DB_NAME}`;
-
 mongoose
 	.connect(url, {
 		useNewUrlParser: true,
@@ -26,12 +25,15 @@ const postSchema = mongoose.Schema(
 		},
 		{ versionKey: false }
 	),
-	userSchema = mongoose.Schema({
-		name: String,
-		email: String,
-		img: String,
-		password: String,
-	}),
+	userSchema = mongoose.Schema(
+		{
+			name: String,
+			email: String,
+			img: String,
+			password: String,
+		},
+		{ versionKey: false }
+	),
 	PostModel = mongoose.model("posts", postSchema),
 	UserModel = mongoose.model("users", userSchema);
 
