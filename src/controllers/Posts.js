@@ -2,11 +2,12 @@ const { UserModel, PostModel } = require("../models/Db");
 
 const createPost = async (req, res, next) => {
 	try {
-		const { title, description, created_at } = req.body;
+		const { id, title, description } = req.body;
 		const post = new PostModel({
 			title,
 			description,
-			created_at,
+			created_at: new Date(),
+			user: id,
 		});
 		const result = await post.save();
 		res.json({ msg: "Post has been created" });

@@ -17,11 +17,7 @@ const postSchema = mongoose.Schema(
 			title: String,
 			description: String,
 			created_at: Date,
-			user: {
-				id: String,
-				name: String,
-				img: String,
-			},
+			user: String,
 		},
 		{ versionKey: false }
 	),

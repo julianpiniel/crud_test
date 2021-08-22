@@ -10,8 +10,8 @@ const router = require("express").Router();
 
 router
 	.route("/")
-	.get(readUser)
 	.post(createUser)
+	.get(readUser)
 	.put(updateUser)
 	.delete(deleteUser);
 
