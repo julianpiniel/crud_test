@@ -1,18 +1,21 @@
 const mongoose = require("mongoose");
 require("dotenv").config();
 
-const { DB_SERVER, DB_HOST, DB_NAME } = process.env;
-const url = `${DB_SERVER}://${DB_HOST}:/${DB_NAME}`;
+const { MONGO_DB_URI, MONGO_DB_TEST, NODE_ENV } = process.env;
+
 const userSchema = require("./Users");
 const postSchema = require("./Posts");
+
+const connectionString = NODE_ENV === "test" ? MONGO_DB_TEST : MONGO_DB_URI;
+
 mongoose
-	.connect(url, {
+	.connect(connectionString, {
 		useNewUrlParser: true,
 		useUnifiedTopology: true,
 		useFindAndModify: false,
 		useCreateIndex: true,
 	})
-	.then(() => console.log(`Connected to ${DB_SERVER}`))
+	.then(() => console.log(`Connected to ${connectionString}`))
 	.catch((error) => console.log("error:", error));
 
 const PostModel = mongoose.model("posts", postSchema),
