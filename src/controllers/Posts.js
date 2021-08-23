@@ -1,4 +1,4 @@
-const { UserModel, PostModel } = require("../models/Db");
+const { UserModel, PostModel } = require("../models");
 
 const createPost = async (req, res, next) => {
 	try {
@@ -18,7 +18,12 @@ const createPost = async (req, res, next) => {
 
 const readPost = async (req, res, next) => {
 	try {
-		const posts = await PostModel.find();
+		const posts = await PostModel.find()
+			.populate({
+				path: "user",
+				model: UserModel,
+			})
+			.exec();
 		res.json(posts);
 	} catch (error) {
 		next(error);
