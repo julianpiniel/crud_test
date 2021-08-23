@@ -3,6 +3,8 @@ const { UserModel } = require("../models");
 const createUser = async (req, res, next) => {
 	try {
 		const { name, email, img, password } = req.body;
+		if (!name || !email || !img || !password)
+			return res.status(400).json({ msg: "Info es missing" });
 		const user = new UserModel({
 			name,
 			email,
@@ -28,6 +30,8 @@ const readUser = async (req, res, next) => {
 const updateUser = async (req, res, next) => {
 	try {
 		const { id, name, email, img, password } = req.body;
+		if (!name || !email || !img || !password || !id)
+			return res.status(400).json({ msg: "Info es missing" });
 		const originalUser = await UserModel.findById({ _id: id });
 		const user = await UserModel.updateOne(
 			{
@@ -51,6 +55,8 @@ const updateUser = async (req, res, next) => {
 const deleteUser = async (req, res, next) => {
 	try {
 		const { id } = req.body;
+		if (!id || id.length < 10)
+			return res.status(400).json({ msg: "Please enter a valid id" });
 		const user = await UserModel.deleteOne({ _id: id });
 		res.json({ msg: "User successfully deleted" });
 	} catch (error) {

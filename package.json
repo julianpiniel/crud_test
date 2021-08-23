@@ -6,7 +6,8 @@
 	"scripts": {
 		"start": " cross-env NODE_ENV=production nodemon -L index.js",
 		"test": "cross-env NODE_ENV=test jest  --silent --verbose",
-		"test:watch": "npm run test -- --watch"
+		"test:watch": "npm run test -- --watch",
+		"dev": "cross-env NODE_ENV=test nodemon -L index.js"
 	},
 	"repository": {
 		"type": "git",
