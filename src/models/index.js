@@ -6,7 +6,8 @@ const { MONGO_DB_URI, MONGO_DB_TEST, NODE_ENV } = process.env;
 const userSchema = require("./Users");
 const postSchema = require("./Posts");
 
-const connectionString = NODE_ENV === "test" ? MONGO_DB_TEST : MONGO_DB_URI;
+const connectionString =
+	NODE_ENV === "test" ? MONGO_DB_TEST : "mongodb://mongo:27017/crud";
 
 mongoose
 	.connect(connectionString, {

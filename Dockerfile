@@ -2,8 +2,8 @@ FROM node:14
 
 ENV PORT=3001 \
 JWT_KEY=mysecretkey \
-MONGO_DB_URI=mongodb://localhost:/crud\
-MONGO_DB_TEST=mongodb://localhost:/crud_test
+MONGO_DB_URI=mongodb://localhost:27017/crud \
+MONGO_DB_TEST=mongodb://localhost:27017/crud_test
 
 RUN mkdir -p /usr/src/app
 
