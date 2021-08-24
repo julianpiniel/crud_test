@@ -4,14 +4,13 @@ services:
         container_name: crud_vozy
         restart: always
         build: .
-        environment:
-            - MONGO_DB_URI=${MONGO_DB_URI}
+        # environment:
+        #     - MONGO_DB_URI=mongodb://mongo:27017/crud
         ports:
-            - "5000:3000"
+            - "5000:3001"
         links:
             - mongo
-        volumes:
-            - .:usr/src/app
+
     mongo:
         container_name: mongodb
         image: mongo

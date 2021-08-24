@@ -1,6 +1,6 @@
 # Crud-Test
 
-Crud-Test implemented in Node.Js
+Crud-Test implemented in Node.Js & MongoDB
 
 # About
 
@@ -24,9 +24,10 @@ Docker and Docker-compose is set but not working as intended
 
 Sure!
 
--   If you have Node and an IDE, just clone this repo and run npm install.
+-   If you have Node and an IDE(like Visual Studio Code or Sublime Text, among others), just clone this repo and run npm install.
 
--   To set .env you can use(
+-   Then create a .env file with the following variables, you may use these:
+    (
     PORT=3001
     JWT_KEY=mysecretkey
     MONGO_DB_URI=mongodb://localhost/crud
@@ -34,8 +35,8 @@ Sure!
     xMONGO_DB_URI=mongodb://mongo:27017/crud
     )
 
--   Then run "npm start" and server will listen on port 3001.
+-   Then run "npm start" and server will start listening on port 3001.
 
--   Tests can be run with "npm run test"
+-   Tests can be seen with "npm run test"
 
 -   Docker and Docker-compose are still on development.
