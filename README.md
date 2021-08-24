@@ -18,7 +18,7 @@ Test coverages up to 76%.
 
 This coverage can be seen at ./coverage/lcov-report/index.html
 
-Docker and Docker-compose is set but not working as intended
+User Docker and Docker-Compose.
 
 # Can I try it at home?
 
@@ -39,4 +39,11 @@ Sure!
 
 -   Tests can be seen with "npm run test"
 
--   Docker and Docker-compose are still on development.
+-   Docker and Docker-compose ready. Just do:
+
+    -   docker-compose build
+    -   docker-compose up
+
+    And server will be listening on port 5000
+
+Disclaimer: Had problems using .env with docker-compose, so I just hardcoded the DB conectionString.
